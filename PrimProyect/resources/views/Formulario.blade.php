@@ -8,15 +8,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
     <title>Formulario</title>
+    <!-- Para linkear archivos como css y que el motor Blade lo compile debemos establecerlo con "{{asset('')}}" -->
     <link rel="stylesheet" href="{{asset('normalize.css')}}">
     <link rel="stylesheet" href="{{asset('forms.css')}}">
 </head>
 
 <body>
+
+    <!-- Como definimos en la rutas, nuestro fomrulario al ser "accionado" enviara los datos mediante el método "Post"
+    Por eso es importante definir las 2 rutas, o más bien los 2 métodos para ambas rutas.
+    Así mismo en "action" colocamos este mismo archivo, será procesado por si mismo y no por otra página -->
+
     <form id="personal-data" action="{{'formulario'}}" method="POST">
         <h1 class="no-margin centrar-texto">Formulario</h1>
         <hr>
         <div id="datos_form">
+
+            <!-- Debemos utlizar esta "etiqueta propia de Laravel, que es como un token de validación en tiempo real" 
+            tengo entendido que es una medida de seguridad en formularios, un requisito, sin este da error -->
 
             {{ csrf_field() }}
 
@@ -57,6 +66,7 @@
             </div>
         </div>
     </form>
+
 </body>
 
 </html>

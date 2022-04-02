@@ -16,10 +16,14 @@ class FormController extends Controller
     }
 
 
+    // Esta funcióno nos envia la vista, el "html"
+
     public function formulario()
     {
         return view("formulario");
     }
+
+    // Esta función procesa los datos y al final nos reenvia a la página de confirmación
 
     public function store(Request $request)
     {
